@@ -21,4 +21,3 @@ export const fetchProduct = async (id) => {
     console.error(error)
   }
 }
-

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import truncateText from '../utlis/utlis';
+import Loader from './Loader/Loader';
 
 
 const Checkout = () => {
+  const [loading, setLoading] = useState(false)
   const shoppingCart = useSelector((state) => state.shoppingCart.cartItems);
   const subtotal = shoppingCart.reduce((total, item) => total + item.price * item.quantity, 0);
   const cartItemCount = useSelector((state) =>
@@ -22,8 +24,19 @@ const Checkout = () => {
     console.log("Form Data:", data);
   };
 
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [])
+
+  if (loading) return <Loader
+  />;
+
   return (
-    
+
     <div>
       <Container className='mb-5'>
         <Row>

@@ -7,7 +7,6 @@ import { addToCart } from '../featured/ShoppingCartSlice/ShoppingCartSlice';
 import truncateText from '../utlis/utlis';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-// import truncateText from './../utlis/utlis';
 
 
 const ProductList = () => {
@@ -44,6 +43,8 @@ const ProductList = () => {
 
     getProducts();
   }, [category]);
+
+  
 
   return (
     <div>

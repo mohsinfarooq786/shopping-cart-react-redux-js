@@ -10,6 +10,7 @@
   import AboutUs from './components/Policy Pages/AboutUs';
   import ShippingPolicy from './components/Policy Pages/ShippingPolicy';
   import Loader from './components/Loader/Loader';
+  import NavbarMain from './components/NavbarMain/NavbarMain';
 
 
 
@@ -28,6 +29,7 @@
 
     return (
       <div>
+      <NavbarMain />  
       <Navbar />
       <ToastContainer
       position='bottom-left'

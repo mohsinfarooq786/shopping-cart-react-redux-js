@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../featured/ShoppingCartSlice/ShoppingCartSlice';
 import { toast } from 'react-toastify';
+import Loader from './Loader/Loader';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -41,7 +42,7 @@ const ProductDetail = () => {
     getProduct();
   }, [id]);
 
-  if (!product) return <p>Product Searching</p>;
+  if (!product) return <Loader />;
 
 
   return (
@@ -72,7 +73,7 @@ const ProductDetail = () => {
                 {loadingItems[product.id] ? (
                   <>
                     <Spinner animation="grow" size="sm" role="status" className="me-2">
-                      <span className="visually-hidden">Loading...</span>
+                      <span className="visually-hidden"></span>
                     </Spinner>
                   </>
                 ) : successItems[product.id] ? (
